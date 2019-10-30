@@ -1,3 +1,10 @@
+/*
+** PERSONAL PROJECT, 2019
+** prime_computer
+** File description:
+** prime computer reading functions
+*/
+
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
