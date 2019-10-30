@@ -70,7 +70,7 @@ static int help(void)
            " This program is a prime numbers computer. This program is limited "
            "to the size of\n a 32-bit integer,  which  means  it  will  stop  "
            "calculating  after  it  reached\n a prime number higher than "
-           "2.147.483.647 (the last one is not printed).\n\n"
+           "2,147,483,647 (the last one is not printed).\n\n"
            " This program can be slowed down by passing it an argument,  which  has  to  "
            "be  a\n positive integer. The program will wait for this amount of time, "
            "in microseconds,\n after every found prime number. You may want to try "
