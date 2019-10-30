@@ -22,7 +22,7 @@ static void writing_result(int fd, char *nth, char *nb)
 
 static int write_result(int nth, int nb)
 {
-    int fd = open("calculations_prime", O_CREAT | O_WRONLY);
+    int fd = open("calculations_prime.txt", O_CREAT | O_WRONLY);
     char *n_th = my_itoa(++nth);
     char *number = my_itoa(nb);
 

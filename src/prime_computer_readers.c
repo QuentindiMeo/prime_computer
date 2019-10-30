@@ -36,7 +36,7 @@ static void free2(char *tofree1, char *tofree2)
 int read_last_line(int id)
 {
     int response;
-    FILE *stream = fopen("calculations_prime", "r");
+    FILE *stream = fopen("calculations_prime.txt", "r");
     char *buff = NULL;
     size_t buf = 0;
     char *buffer = NULL;
