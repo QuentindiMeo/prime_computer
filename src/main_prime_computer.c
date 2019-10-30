@@ -57,6 +57,8 @@ static uint get_wait(int ac, char **av)
                    "Try './prime_computer --help' for more information.\n");
             exit(FAILURE);
         }
+    if (my_atou(av[1]) > 4000000000)
+        return (0);
     return (my_atou(av[1]));
 }
 
@@ -69,12 +71,12 @@ static int help(void)
            "to the size of\n a 32-bit integer,  which  means  it  will  stop  "
            "calculating  after  it  reached\n a prime number higher than "
            "2.147.483.647 (the last one is not printed).\n\n"
-           " This program can be slowed down by giving it an argument,  which  has  to  "
+           " This program can be slowed down by passing it an argument,  which  has  to  "
            "be  a\n positive integer. The program will wait for this amount of time, "
-           "in microseconds,\n after every found prime number.\n This delay can't exceed "
-           "4.000.000.000 microseconds. The program will ignore this\n value if you put "
-           "a higher number as a delay.  You may want to try this out for a\n"
-           " human-readable speed.\n"
+           "in microseconds,\n after every found prime number. You may want to try "
+           "this out for a human-readable\n speed. This delay can't exceed "
+           "4  billion  microseconds.  The program will ignore\n this value if you put "
+           "a higher number as a delay.\n"
            "\n\n");
     return (0);
 }
@@ -92,7 +94,7 @@ int main(int argc, char **argv)
     for (uint nb = read_last_line(2) + 1; 2147483647; nb++) {
         for (int dvdr = 2; 1.99 * dvdr < nb; dvdr++) {
             if (ctr)
-                continue;
+                break;
             if (nb % dvdr == 0)
                 ctr++;
         }
