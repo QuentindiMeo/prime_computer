@@ -20,6 +20,8 @@ CFLAGS	=	-I $(HEADER_PATH) -Wall -Werror -Wextra --pedantic
 
 NAMENORMAL	=	prime_computer
 
+OUTPUTTXT	=	calculations_prime.txt
+
 .PHONY: clean fclean re prime_computer prime_supercomputer
 
 all: $(NAMENORMAL)
@@ -36,5 +38,7 @@ clean:
 fclean:	clean
 	@rm -rf $(NAMENORMAL)
 	@echo Cleaned \'$(NAMENORMAL)\'
+	@rm -rf $(OUTPUTTXT)
+	@echo Cleaned \'$(OUTPUTTXT)\'
 
 re: fclean all
