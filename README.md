@@ -12,4 +12,4 @@ This way, it keeps on going when you launch it again.<br>
 Have fun!<br>
 <br>
 <br>
-<b>WORK STILL IN PROGRESS, LOTS OF FEATURES TO COME.</b>
+<b>WORK STILL IN PROGRESS, LOTS OF FEATURES YET TO COME.</b>

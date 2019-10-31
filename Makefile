@@ -5,10 +5,10 @@
 ## Makefile
 ##
 
-SRCNORMAL	=	src/prime_computer_readers.c	\
+SRC	=	src/prime_computer_readers.c	\
 			src/main_prime_computer.c	\
 
-OBJNORMAL	=	$(SRCNORMAL:.c=.o)
+OBJ	=	$(SRC:.c=.o)
 
 HEADER_PATH     =       include/
 
@@ -18,26 +18,26 @@ LIB     =       include/libmy.a
 
 CFLAGS	=	-I $(HEADER_PATH) -Wall -Werror -Wextra --pedantic
 
-NAMENORMAL	=	prime_computer
+NAME	=	prime_computer
 
 OUTPUTTXT	=	calculations_prime.txt
 
 .PHONY: clean fclean re prime_computer prime_supercomputer
 
-all: $(NAMENORMAL)
+all: $(NAME)
 
-$(NAMENORMAL): $(OBJNORMAL)
-	@echo Compiling \'$(NAMENORMAL)\'
-	$(CC) -o $(NAMENORMAL) $(OBJNORMAL) $(LIB)
-	@echo \'$(NAMENORMAL)\' compiled successfully
+$(NAME): $(OBJ)
+	@echo Compiling \'$(NAME)\'
+	$(CC) -o $(NAME) $(OBJ) $(LIB)
+	@echo \'$(NAME)\' compiled successfully
 
 clean:
-	@rm -rf $(OBJNORMAL)
-	@echo Cleaned .o for \'$(NAMENORMAL)\'
+	@rm -rf $(OBJ)
+	@echo Cleaned .o for \'$(NAME)\'
 
 fclean:	clean
-	@rm -rf $(NAMENORMAL)
-	@echo Cleaned \'$(NAMENORMAL)\'
+	@rm -rf $(NAME)
+	@echo Cleaned \'$(NAME)\'
 	@rm -rf $(OUTPUTTXT)
 	@echo Cleaned \'$(OUTPUTTXT)\'
 
