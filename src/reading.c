@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include "../include/my.h"
 
-static int get_number(char *str)
+static uint get_number(char *str)
 {
     int i = my_strlen(str) - 2;
     char *number = NULL;
@@ -23,15 +23,15 @@ static int get_number(char *str)
     return (nb);
 }
 
-static int get_nth(char *str)
+static uint get_nth(char *str)
 {
     char *n_th = NULL;
-    int nth = 0;
+    uint nth = 0;
 
     n_th = my_cut_str(str, 4, 16);
     nth = my_atou(n_th);
     free(n_th);
-    return (nth - 1);
+    return (nth == 0 ? 0 : nth - 1);
 }
 
 static void free2(char *tofree1, char *tofree2)
@@ -40,9 +40,9 @@ static void free2(char *tofree1, char *tofree2)
     free(tofree2);
 }
 
-int read_last_line(int id)
+uint read_last_line(int id)
 {
-    int response;
+    uint response;
     FILE *stream = fopen("calculations_prime.txt", "r");
     char *buff = NULL;
     size_t buf = 0;

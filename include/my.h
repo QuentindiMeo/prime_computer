@@ -17,6 +17,7 @@ typedef enum {
     NO = 0,
     ERROR = -1,
     END_OF_FILE = -1,
+    END_OF_ARGS = -1,
     CTRLD = -1,
 } return_values_t;
 
