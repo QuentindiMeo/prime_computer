@@ -27,7 +27,7 @@ typedef enum {
     MAX = 2147483647,
 } default_t;
 
-char *is_find_alone(int is_alone);
+char *is_find_alone(int is_alone, char c);
 int digits_ok(unsigned int *settings, unsigned int nb);
 
 void writing_result(int fd, char *nth, char *nb);

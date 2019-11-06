@@ -26,7 +26,7 @@ NAME	=	prime_computer
 
 OUTPUTTXT	=	calculations_prime.txt
 
-.PHONY: clean fclean re prime_computer prime_supercomputer
+.PHONY: clean fclean re prime_computer
 
 all: $(NAME)
 

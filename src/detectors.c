@@ -17,9 +17,9 @@ uint adjust(char *optarg, uint val)
     return (val);
 }
 
-char *is_find_alone(int a)
+char *is_find_alone(int a, char c)
 {
-    if (a) {
+    if (a || c != END_OF_ARGS) {
         my_putstr("-F and --find must be used alone.\n");
         my_putstr("Try './tictactoe --help' for other information.\n");
         return (NULL);
