@@ -12,7 +12,7 @@
 
 static uint limit_slow(int slow)
 {
-    if (slow > 60000)
+    if (slow > 60000000)
         return (0);
     return (slow);
 }
