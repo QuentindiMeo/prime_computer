@@ -42,7 +42,8 @@ static void prime_loop(uint *settings, uint nth, uint nb)
 {
     uint ctr = 0;
 
-    for (; nb < MAX && nb < settings[END] && digits_ok(settings, nb); nb++) {
+    for (; nb < MAX && nb < settings[END] &&
+             nth < settings[UNTIL] && digits_ok(settings, nb); nb++) {
         for (int dvdr = 2; 1.99 * dvdr < nb; dvdr++) {
             if (ctr)
                 break;

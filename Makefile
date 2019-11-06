@@ -8,7 +8,8 @@
 SRC	=	src/writing.c			\
 		src/reading.c			\
 		src/setup.c			\
-		src/detectors_help.c		\
+		src/detectors.c			\
+		src/help.c			\
 		src/main_prime_computer.c	\
 
 OBJ	=	$(SRC:.c=.o)

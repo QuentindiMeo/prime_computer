@@ -1,6 +1,7 @@
 # Prime computer
 <b>Language</b>: C<br>
 <b>Compilation</b>: via Makefile<br>
+<b>Options</b>: [-dhuEFS] [--digits, --end, --find --help, --slow, --start, --until]<br>
 <br>
 Welcome to the prime computer!<br>
 <br>
@@ -10,6 +11,3 @@ This prime computer prints its results and store them in a file named "calculati
 This way, it keeps on going when you launch it again.<br>
 <br>
 Have fun!<br>
-<br>
-<br>
-<b>WORK STILL IN PROGRESS, LOTS OF FEATURES YET TO COME.</b>

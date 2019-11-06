@@ -14,11 +14,13 @@ typedef enum {
     FIND = 2,
     DIGITS = 3,
     SLOW = 4,
+    UNTIL = 5,
     OSTART = 'S',
     OEND = 'E',
     OFIND = 'F',
     ODIGITS = 'd',
     OSLOW = 's',
+    OUNTIL = 'u',
 } settings_id_t;
 
 typedef enum {
