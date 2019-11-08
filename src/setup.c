@@ -28,7 +28,7 @@ static char *do_switch(char c, char *optarg, uint **settings, int alone)
         break;
     case OFIND :
         (*settings)[FIND] = my_atou(optarg);
-        return (is_find_alone(alone, c));
+        return (is_find_alone(alone));
         break;
     case OSLOW :
         (*settings)[SLOW] = limit_slow(my_atou(optarg) * 1000);
