@@ -17,7 +17,7 @@ static uint limit_slow(int slow)
     return (slow);
 }
 
-static char *do_switch(char c, char *optarg, uint **settings, int alone)
+static char *do_switch(char c, char *optarg, uint **settings)
 {
     switch (c) {
     case ODIGITS :
@@ -28,13 +28,18 @@ static char *do_switch(char c, char *optarg, uint **settings, int alone)
         break;
     case OFIND :
         (*settings)[FIND] = my_atou(optarg);
-        return (is_find_alone(alone));
+        break;
+    case OSILENT :
+        (*settings)[SILENT] = 1;
         break;
     case OSLOW :
         (*settings)[SLOW] = limit_slow(my_atou(optarg) * 1000);
         break;
     case OSTART :
         (*settings)[START] = my_atou(optarg);
+        break;
+    case OSTORE :
+        (*settings)[STORE] = 1;
         break;
     case OUNTIL :
         (*settings)[UNTIL] = adjust(optarg, my_atou(optarg));
@@ -73,17 +78,24 @@ static void set_longopts(struct option **longopts)
     (*longopts)[5].has_arg = 1;
     (*longopts)[5].flag = NULL;
     (*longopts)[5].val = 'u';
+    (*longopts)[6].name = "silent";
+    (*longopts)[6].has_arg = 0;
+    (*longopts)[6].flag = NULL;
+    (*longopts)[6].val = OSILENT;
+    (*longopts)[7].name = "store";
+    (*longopts)[7].has_arg = 0;
+    (*longopts)[7].flag = NULL;
+    (*longopts)[7].val = OSTORE;
 }
 
 int get_settings(int ac, char **av, uint *settings)
 {
-    char c = 0;
-    struct option *longopts = malloc(sizeof(struct option) * 6);
+    struct option *longopts = malloc(sizeof(struct option) * 8);
 
     set_longopts(&longopts);
-    for (int i = 0; c != END_OF_ARGS; i++) {
+    for (char c = 0; c != END_OF_ARGS;) {
         c = getopt_long(ac, av, "d:u:E:F:S:", longopts, NULL);
-        if (do_switch(c, optarg, &settings, i) == NULL) {
+        if (do_switch(c, optarg, &settings) == NULL) {
             free(longopts);
             free(settings);
             return (FAILURE);
@@ -95,7 +107,7 @@ int get_settings(int ac, char **av, uint *settings)
 
 uint *setup(void)
 {
-    uint *settings = malloc(sizeof(unsigned int) * 6);
+    uint *settings = malloc(sizeof(unsigned int) * 8);
 
     settings[START] = 0;
     settings[END] = MAX;
@@ -103,5 +115,7 @@ uint *setup(void)
     settings[DIGITS] = MAX;
     settings[SLOW] = 0;
     settings[UNTIL] = MAX;
+    settings[SILENT] = 0;
+    settings[STORE] = 0;
     return (settings);
 }

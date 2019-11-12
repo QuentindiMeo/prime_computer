@@ -12,10 +12,15 @@
 
 static uint get_number(char *str)
 {
-    int i = my_strlen(str) - 2;
+    int i;
     char *number = NULL;
     uint nb = 0;
 
+    if (!str)
+        return (0);
+    if (my_strlen(str) < 5)
+        return (0);
+    i = my_strlen(str) - 2;
     for (; i && str[i] >= '0' && str[i] <= '9'; i--);
     number = my_cut_str(str, i + 1, my_strlen(str) - 2);
     nb = my_atou(number);
@@ -28,6 +33,10 @@ static uint get_nth(char *str)
     char *n_th = NULL;
     uint nth = 0;
 
+    if (!str)
+        return (0);
+    if (my_strlen(str) < 5)
+        return (0);
     n_th = my_cut_str(str, 4, 16);
     nth = my_atou(n_th);
     free(n_th);
@@ -51,7 +60,7 @@ uint read_last_line(int id)
 
     if (!stream)
         return (id == 1 ? -1 : 1);
-    while (ret_v != -1) {
+    while (ret_v != END_OF_FILE) {
         if (buffer != NULL)
             free(buffer);
         if (buff != NULL)

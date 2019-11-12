@@ -8,6 +8,8 @@
 #ifndef PRIME_H_
 #define PRIME_H_
 
+#include "my.h"
+
 typedef enum {
     START = 0,
     END = 1,
@@ -15,29 +17,31 @@ typedef enum {
     DIGITS = 3,
     SLOW = 4,
     UNTIL = 5,
+    SILENT = 6,
+    STORE = 7,
     OSTART = 'S',
     OEND = 'E',
     OFIND = 'F',
     ODIGITS = 'd',
     OSLOW = 's',
     OUNTIL = 'u',
+    OSILENT = '-',
+    OSTORE = 'D',
 } settings_id_t;
 
 typedef enum {
     MAX = 2147483647,
 } default_t;
 
-char *is_find_alone(int is_alone);
-int digits_ok(unsigned int *settings, unsigned int nb);
+int digits_ok(uint *settings, uint nb);
 
-void writing_result(int fd, char *nth, char *nb);
-unsigned int write_result(unsigned int nth, unsigned int nb, int id);
+uint write_result(uint nth, uint nb, int id, uint *settings);
 
-unsigned int read_last_line(int id);
+uint read_last_line(int id);
 
-unsigned int adjust(char *optarg, unsigned int val);
-int get_settings(int ac, char **av, unsigned int *settings);
-unsigned int *setup(void);
+uint adjust(char *optarg, uint val);
+int get_settings(int ac, char **av, uint *settings);
+uint *setup(void);
 
 int help(void);
 

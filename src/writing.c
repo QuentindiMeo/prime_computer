@@ -13,7 +13,7 @@
 #include "../include/prime.h"
 #include "../include/my.h"
 
-void writing_result(int fd, char *nth, char *nb)
+static void writing_result(int fd, char *nth, char *nb)
 {
     lseek(fd, 0, SEEK_END);
     write(fd, "  P-", 4);
@@ -25,16 +25,24 @@ void writing_result(int fd, char *nth, char *nb)
     write(fd, "\n", 1);
 }
 
-uint write_result(uint nth, uint nb, int id)
+uint write_result(uint nth, uint nb, int id, uint *settings)
 {
-    int fd = open("calculations_prime.txt", O_CREAT | O_WRONLY);
-    char *n_th = my_utoa(++nth);
-    char *number = my_utoa(nb);
+    int fd = EOF;
+    char *n_th = NULL;
+    char *number = NULL;
 
+    if (!settings[STORE] && settings[SILENT] && !settings[FIND])
+        return (++nth);
+    if (settings[STORE])
+        fd = open("calculations_prime.txt", O_CREAT | O_WRONLY);
+    n_th = my_utoa(++nth);
+    number = my_utoa(nb);
     fchmod(fd, 0666);
     if (!id) {
-        printf("  P-%d:\t%c%d\n", nth, nth > 99 ? '\0' : '\t', nb);
-        writing_result(fd, n_th, number);
+        if (!settings[SILENT] || settings[FIND])
+            printf("  P-%d:\t%c%d\n", nth, nth > 99 ? '\0' : '\t', nb);
+        if (settings[STORE])
+            writing_result(fd, n_th, number);
     }
     free(n_th);
     free(number);
