@@ -1,7 +1,7 @@
 # Prime computer
 <b>Language</b>: C<br>
 <b>Compilation</b>: via Makefile<br>
-<b>Options</b>: [-dhuEFS] [--digits, --end, --find, --help, --slow, --start, --until]<br>
+<b>Options</b>: [-dhuEFS] [--digits, --end, --find, --help, --silent, --slow, --start, --store, --until]<br>
 <br>
 Welcome to the prime computer!<br>
 <br>
