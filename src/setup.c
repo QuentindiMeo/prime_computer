@@ -45,7 +45,7 @@ static char *do_switch(char c, char *optarg, uint **settings)
         (*settings)[UNTIL] = adjust(optarg, my_atou(optarg));
         break;
     case '?' :
-        my_putstr("Try './tictactoe --help' for more information.\n");
+        my_putstr("Try './prime_computer --help' for more information.\n");
         return (NULL);
         break;
     }
