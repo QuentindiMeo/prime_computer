@@ -21,7 +21,7 @@ char *is_find_alone(int a)
 {
     if (a) {
         my_putstr("-F and --find must be used alone.\n");
-        my_putstr("Try './tictactoe --help' for other information.\n");
+        my_putstr("Try './prime_computer --help' for other information.\n");
         return (NULL);
     }
     return ("-");
