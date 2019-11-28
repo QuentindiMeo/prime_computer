@@ -1,6 +1,6 @@
 /*
 ** PERSONAL PROJECT, 2018
-** prime_compute
+** prime_computer
 ** File description:
 ** prime computer headers
 */
